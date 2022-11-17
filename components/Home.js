@@ -87,6 +87,7 @@ const Home = () => {
   )
 }
 
+// tes commit cok
 export default Home
 
 const styles = StyleSheet.create({
