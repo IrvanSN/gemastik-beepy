@@ -4,7 +4,7 @@ import { Box, Header,Text, ChevronLeftIcon, Icon, Pressable, Heading, Link, VSta
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import * as MailComposer from 'expo-mail-composer';
+// import * as MailComposer from 'expo-mail-composer';
 // import SendSMS from 'react-native-sms';
 
 const Allert = () =>{
@@ -48,27 +48,27 @@ function Show(){
     });
   }
 
-  const sendEmail = () => {
-    var options = {}
-    options = {
-      subject: "Sending email with attachment",
-      recipients: ["zainberlin@gmail.com", "devyrantelili07@gmail.com"],
-      body: "Ini Email Coba buat Alert"
-    }
-    let promise = new Promise((resolve, reject) => {
-      MailComposer.composeAsync(options)
-        .then((result) => {
-          resolve(result)
-        })
-        .catch((error) => {
-          reject(error)
-        })
-      })
-    promise.then(
-      result => setStatus("Status: email " + result.status),
-      error => setStatus("Status: email " + error.status)
-     )
-  }
+  // const sendEmail = () => {
+  //   var options = {}
+  //   options = {
+  //     subject: "Sending email with attachment",
+  //     recipients: ["zainberlin@gmail.com", "devyrantelili07@gmail.com"],
+  //     body: "Ini Email Coba buat Alert"
+  //   }
+  //   let promise = new Promise((resolve, reject) => {
+  //     MailComposer.composeAsync(options)
+  //       .then((result) => {
+  //         resolve(result)
+  //       })
+  //       .catch((error) => {
+  //         reject(error)
+  //       })
+  //     })
+  //   promise.then(
+  //     result => setStatus("Status: email " + result.status),
+  //     error => setStatus("Status: email " + error.status)
+  //    )
+  // }
 
   // const sendEmailWithAttachment = async() => {
   //   //get the image to attach.

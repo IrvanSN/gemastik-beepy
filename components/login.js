@@ -3,6 +3,7 @@ import { View, StyleSheet, Image, SafeAreaView, Alert } from 'react-native';
 import { Box, Text, Icon, Pressable, Heading, Link, VStack, FormControl, Input, extendTheme, Button, HStack, Center, NativeBaseProvider } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default Login = () => {
   return(
@@ -75,11 +76,16 @@ const Show = () => {
                 <Text fontFamily="body" fontWeight="600" fontSize="xl" color="coolGray.600" _dark={{color: "warmGray.200"}}>
                 Belum Punya Akun ? {" "}
                 </Text>
-                <Pressable onPress={() => navigation.navigate('Signup', { name: 'Daftar' })}>
+                <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+                  <Text color="#FF0000" fontWeight="medium" fontSize="xl" fontFamily="heading">
+                    Daftar disini
+                  </Text>
+                </TouchableOpacity>
+                {/* <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
                   <Text color="#FF0000" fontWeight="medium" fontSize="xl" fontFamily="heading">
                     Daftar Disini
                   </Text>
-                </Pressable>
+                </TouchableOpacity> */}
             </HStack>
 
             </FormControl>

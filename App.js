@@ -8,6 +8,7 @@ import Daftar from './components/daftar.js';
 import Welcome from './components/welcome';
 import Home from './components/Home';
 import Allert from './components/allert.js';
+import Signup from './components/Signup.js';
 
 const Stack = createStackNavigator();
 
@@ -17,8 +18,9 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="Login" component={Login}/>
+            <Stack.Screen name="Daftar" component={Daftar}/>
+            <Stack.Screen name="Signup" component={Signup} options={{title:"Daftar Akun Baru", headerShown: true}}/>
             <Stack.Screen name="Welcome" component={Welcome}/>
-            <Stack.Screen name="Signup" component={Daftar}/>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Allert" component={Allert}/>
           </Stack.Navigator>

@@ -16,8 +16,8 @@ const Home = ({navigation}) => {
       <NativeBaseProvider>
         <View flex={1}>
           <View style={styles.header}>
-            <FontAwesome name="user-circle" size={30} color="black" />
-            <Text style={styles.headerText}>Hai, Alif Nurul Hidayah</Text>
+              <FontAwesome name="user-circle" size={30} color="black" />
+              <Text fontWeight="bold" fontSize="2xl" ml="5" fontFamily="heading">Hai, Alif Nurul Hidayah</Text>
           </View>
           <ScrollView style={styles.wrapper}>
 
