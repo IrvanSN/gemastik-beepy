@@ -9,17 +9,23 @@ import {
   AntDesign,
   MaterialIcons
 } from '@expo/vector-icons';
+import Map from "../assets/svg/Map";
+import SOS from "../assets/svg/SOS";
+import Report from "../assets/svg/Report";
+import DataLaporan from "../assets/svg/DataLaporan";
+import Contact from "../assets/svg/Contact";
+import Person from "../assets/svg/Person";
 
 const Home = ({navigation}) => {
   return (
     <SafeAreaView flex={1}>
       <NativeBaseProvider>
         <View flex={1}>
-          <View style={styles.header}>
-              <FontAwesome name="user-circle" size={30} color="black" />
-              <Text fontWeight="bold" fontSize="2xl" ml="5" fontFamily="heading">Hai, Alif Nurul Hidayah</Text>
-          </View>
           <ScrollView style={styles.wrapper}>
+            <View style={styles.header}>
+              <Person />
+              <Text fontWeight="bold" fontSize="2xl" ml="1" fontFamily="heading">Hai, Alif Nurul Hidayah</Text>
+            </View>
 
             <View style={styles.greenBox}>
               <Text fontFamily="heading" fontWeight="bold" mt='2' fontSize="3xl" >Laporan Status</Text>
@@ -28,64 +34,59 @@ const Home = ({navigation}) => {
               </TouchableOpacity>
             </View>
 
-            <View style={styles.cardMenuList}>
-              <View style={styles.cardMenu}>
-                <TouchableOpacity style={styles.cardMenuBox}>
-                  <FontAwesome5 name="map-marked-alt" size={35} color="#006180" />
-                </TouchableOpacity>
-                <Text style={styles.cardMenuName}>Peta</Text>
-              </View>
-              <View style={styles.cardMenu}>
-                <TouchableOpacity onPress={() => navigation.navigate('Allert', { name: 'Halaman Allert' })} style={styles.cardMenuBox}>
-                  <FontAwesome name="warning" size={35} color="red" />
-                </TouchableOpacity>
-                <Text style={styles.cardMenuName}>SOS</Text>
-              </View>
-              <View style={styles.cardMenu}>
-                <TouchableOpacity style={styles.cardMenuBox}>
-                  <MaterialCommunityIcons name="chat-alert" size={35} color="#006180" />
-                </TouchableOpacity>
-                <Text style={styles.cardMenuName}>Laporkan</Text>
-              </View>
-              <View style={styles.cardMenu}>
-                <TouchableOpacity style={styles.cardMenuBox}>
-                  <FontAwesome name="list" size={35} color="#006180" />
-                </TouchableOpacity>
-                <Text style={styles.cardMenuName}>Data</Text>
-                <Text style={{fontWeight: '600', alignSelf: 'center'}}>Laporan</Text>
-              </View>
-              <View style={styles.cardMenu}>
-                <TouchableOpacity style={styles.cardMenuBox}>
-                  <AntDesign name="contacts" size={35} color="#006180" />
-                </TouchableOpacity>
-                <Text style={styles.cardMenuName}>Kontak</Text>
-              </View>
-            </View>
-
-            <View style={styles.shadow}>
-              <View style={styles.deviceBox}>
-                <View>
-                  <Image source={require('../assets/img/jam.png')} />
-                  {/*<View style={{position: 'absolute'}}>*/}
-                  {/*  <Text>10:25</Text>*/}
-                  {/*  <Text>RABU 03/04/25</Text>*/}
-                  {/*</View>*/}
+              <View style={styles.cardMenuList}>
+                <View style={styles.cardMenu}>
+                  <TouchableOpacity style={styles.cardMenuBox}>
+                    <Map />
+                  </TouchableOpacity>
+                  <Text style={styles.cardMenuName}>Peta</Text>
                 </View>
-                <View style={{alignSelf: 'center', marginLeft: 20}}>
-                  <Text style={{fontWeight: 'bold', fontSize: 20}}>DEVICE STATUS</Text>
-                  <View style={{flexDirection: 'row'}}>
-                    <MaterialIcons name="bluetooth-disabled" size={24} color="#6D6D6D" />
-                    <Text style={{marginLeft: 3, fontSize: 16, color: '#6D6D6D', fontWeight: 'bold'}}>Terputus</Text>
+                <View style={styles.cardMenu}>
+                  <TouchableOpacity onPress={() => navigation.navigate('Allert', { name: 'Halaman Allert' })} style={styles.cardMenuBox}>
+                    <SOS />
+                  </TouchableOpacity>
+                  <Text style={styles.cardMenuName}>SOS</Text>
+                </View>
+                <View style={styles.cardMenu}>
+                  <TouchableOpacity style={styles.cardMenuBox} onPress={() => navigation.navigate('AddReport')}>
+                    <Report />
+                  </TouchableOpacity>
+                  <Text style={styles.cardMenuName}>Laporkan</Text>
+                </View>
+                <View style={styles.cardMenu}>
+                  <TouchableOpacity style={styles.cardMenuBox}>
+                    <DataLaporan />
+                  </TouchableOpacity>
+                  <Text style={styles.cardMenuName}>Data</Text>
+                  <Text style={{fontWeight: '600', alignSelf: 'center'}}>Laporan</Text>
+                </View>
+                <View style={styles.cardMenu}>
+                  <TouchableOpacity style={styles.cardMenuBox}>
+                    <Contact />
+                  </TouchableOpacity>
+                  <Text style={styles.cardMenuName}>Kontak</Text>
+                </View>
+              </View>
+
+            <Box shadow='7' marginX='25' marginBottom='25'>
+                <View style={styles.deviceBox}>
+                  <View>
+                    <Image source={require('../assets/img/jam.png')} />
                   </View>
-                  <Text style={{marginTop: 10}}>Hubungkan</Text>
+                  <View style={{alignSelf: 'center', marginLeft: 20}}>
+                    <Text style={{fontWeight: 'bold', fontSize: 20}}>DEVICE STATUS</Text>
+                    <View style={{flexDirection: 'row'}}>
+                      <MaterialIcons name="bluetooth-disabled" size={24} color="#6D6D6D" />
+                      <Text style={{marginLeft: 3, fontSize: 16, color: '#6D6D6D', fontWeight: 'bold'}}>Terputus</Text>
+                    </View>
+                    <Text style={{marginTop: 10}}>Hubungkan</Text>
+                  </View>
                 </View>
-              </View>
 
-              <TouchableOpacity style={{backgroundColor: '#474747', height: 34, justifyContent: 'center', borderBottomRightRadius: 15, borderBottomLeftRadius: 15}}>
-                <Text style={{color: 'white', alignSelf: 'center', fontSize: 18}}>TAMBAH</Text>
-              </TouchableOpacity>
-            </View>
-
+                <TouchableOpacity style={{backgroundColor: '#474747', height: 34, justifyContent: 'center', borderBottomRightRadius: 15, borderBottomLeftRadius: 15}}>
+                  <Text style={{color: 'white', alignSelf: 'center', fontSize: 18}}>TAMBAH</Text>
+                </TouchableOpacity>
+            </Box>
           </ScrollView>
         </View>
       </NativeBaseProvider>
@@ -96,15 +97,14 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    // paddingHorizontal: 25,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   header: {
     padding: 20,
     marginTop: 30,
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 35
+    marginHorizontal: 20
   },
   headerText: {
     marginLeft: 10,
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   greenBox: {
     marginHorizontal: 25,
-    marginTop: 27,
+    marginTop: 10,
     backgroundColor: '#A0FE98',
     height: 120,
     borderRadius: 10,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     fontWeight: "600"
   },
   cardMenuList: {
-    marginHorizontal: 25,
+    paddingHorizontal: 45,
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginTop: 20,
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   },
   cardMenu: {
     marginVertical: 25,
-    marginHorizontal: 15,
+    marginHorizontal: 10,
     alignItems: 'center',
     flexWrap: 'wrap',
   },
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.48,
     shadowRadius: 11.95,
-    elevation: 18,
+    elevation: 3,
   }
 });
 
