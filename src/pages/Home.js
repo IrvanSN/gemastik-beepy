@@ -21,7 +21,7 @@ const Home = ({navigation}) => {
           </View>
           <ScrollView style={styles.wrapper}>
 
-            <View style={styles.greenBox}>              
+            <View style={styles.greenBox}>
               <Text fontFamily="heading" fontWeight="bold" mt='2' fontSize="3xl" >Laporan Status</Text>
               <TouchableOpacity>
                 <Text fontFamily="heading">Fitur Realtime akan segera hadir</Text>
@@ -65,7 +65,7 @@ const Home = ({navigation}) => {
             <View style={styles.shadow}>
               <View style={styles.deviceBox}>
                 <View>
-                  <Image source={require('../assets/jam.png')} />
+                  <Image source={require('../assets/img/jam.png')} />
                   {/*<View style={{position: 'absolute'}}>*/}
                   {/*  <Text>10:25</Text>*/}
                   {/*  <Text>RABU 03/04/25</Text>*/}
@@ -88,7 +88,7 @@ const Home = ({navigation}) => {
 
           </ScrollView>
         </View>
-      </NativeBaseProvider>      
+      </NativeBaseProvider>
     </SafeAreaView>
   )
 }

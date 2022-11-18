@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
-import { Box, Text, Icon, Pressable, Heading, Link, VStack, FormControl, Input, extendTheme, Button, HStack, Center, NativeBaseProvider } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
-import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, Image } from 'react-native';
+import { extendTheme, Center, NativeBaseProvider } from "native-base";
 
-export default Welcome = () =>{
+const Welcome = () =>{
   return(
     <NativeBaseProvider>
       <Center flex={1}>
@@ -17,8 +15,8 @@ export default Welcome = () =>{
 function Show(){
   return(
     <Center>
-      <Image mt="20" mb="0" style={styles.gambar} source={require('../assets/logo.png')}/>
-      <Image style={styles.judul} source={require('../assets/Beepy.png')}/>
+      <Image mt="20" mb="0" style={styles.gambar} source={require('../assets/img/logo.png')}/>
+      <Image style={styles.judul} source={require('../assets/img/Beepy.png')}/>
     </Center>
   );
 }
@@ -28,11 +26,11 @@ const styles = StyleSheet.create({
       width: 200,
       height: 200,
       marginBottom: 50
-  },    
+  },
   judul:{
     marginBottom: 0,
-    height:59, 
-    width:157 
+    height:59,
+    width:157
   }
 });
 
@@ -111,7 +109,7 @@ const theme = extendTheme({
       },
     }
   },
-  
+
   // Make sure values below matches any of the keys in `fontConfig`
   fonts: {
     heading: "Mogra",
@@ -119,3 +117,5 @@ const theme = extendTheme({
     mono: "Mogra",
   },
 });
+
+export default Welcome

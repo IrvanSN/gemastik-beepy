@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { View, StyleSheet, Image, SafeAreaView, Alert } from 'react-native';
-import { Box, Text, Icon, Pressable, Heading, Link, VStack, FormControl, Input, extendTheme, Button, HStack, Center, NativeBaseProvider } from "native-base";
+import { StyleSheet, Image, SafeAreaView, Alert } from 'react-native';
+import { Box, Text, Icon, Pressable, VStack, FormControl, Input, extendTheme, Button, HStack, Center, NativeBaseProvider } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import InputField from "../components/InputField";
+import Separator from "../components/Separator";
 
-export default Login = () => {
+const SignIn = () => {
   return(
     <NativeBaseProvider>
       <Center flex={1}>
@@ -41,55 +43,55 @@ const Show = () => {
     validasi() ? console.log('Submitted') : console.log('Validation Failed');
   }
 
-  return( 
+  return(
     <SafeAreaView>
-        <VStack width="90%" maxW="300px">
-            <Center mt="150">
-            <Image mt="20" mb="0" style={styles.gambar} source={require('../assets/logo.png')}/>
-            </Center>
-            <FormControl w="100%" px="7%">
-            <FormControl.Label mt="5">
-                <Text fontFamily="body" fontWeight="500" fontSize="xl">Nomor Telepon</Text>
-            </FormControl.Label> 
-            <Box borderRadius="20" shadow="3" bg="#FFFFFF">
-                <Input borderRadius="20" borderWidth="0" size="xl" onChangeText={value => setData({ ...formData, name: value})}/>  
-            </Box>
+      <VStack width="90%" maxW="300px">
+        <Center mt="150">
+          <Image mt="20" mb="0" style={styles.gambar} source={require('../assets/img/logo.png')}/>
+        </Center>
+        <FormControl w="100%">
+          <FormControl.Label mt="5">
+              <Text fontFamily="body" fontWeight="500" fontSize="xl">Nomor Telepon</Text>
+          </FormControl.Label>
+          <Box borderRadius="20" shadow="3" bg="#FFFFFF">
+              <Input borderRadius="20" borderWidth="0" size="xl" onChangeText={value => setData({ ...formData, name: value})}/>
+          </Box>
 
-            <FormControl.Label>
-                <Text fontFamily="body" fontWeight="500" fontSize="xl">Password</Text>
-            </FormControl.Label>
-            <Box borderRadius="20" shadow="3" bg="#FFFFFF">
-                <Input onChangeText={value => setData({ ...formData, pass: value})}
-                type={show ? "text" : "password"} 
-                size="xl" borderRadius="20" borderWidth="0"
-                InputRightElement={
-                <Pressable onPress={() => setShow(!show)}>
-                    <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />} size={5} mr="2" color="muted.400" />
-                </Pressable>}/>
-            </Box>          
+          <FormControl.Label>
+              <Text fontFamily="body" fontWeight="500" fontSize="xl">Password</Text>
+          </FormControl.Label>
+          <Box borderRadius="20" shadow="3" bg="#FFFFFF">
+              <Input onChangeText={value => setData({ ...formData, pass: value})}
+              type={show ? "text" : "password"}
+              size="xl" borderRadius="20" borderWidth="0"
+              InputRightElement={
+              <Pressable onPress={() => setShow(!show)}>
+                  <Icon as={<MaterialIcons name={show ? "visibility" : "visibility-off"} />} size={5} mr="2" color="muted.400" />
+              </Pressable>}/>
+          </Box>
 
-            <Button  onPress={send}p="1" mt="5" mb="0" shadow="3" colorScheme="indigo" bg="#009BBD" borderRadius="10">
-                <Text fontFamily="body" fontWeight="500" fontSize="2xl" color="#FFFFFF">Masuk</Text>
-            </Button>
-            
-            <HStack mt="100" justifyContent="center">
-                <Text fontFamily="body" fontWeight="600" fontSize="xl" color="coolGray.600" _dark={{color: "warmGray.200"}}>
-                Belum Punya Akun ? {" "}
+          <Button  onPress={send}p="1" mt="5" mb="0" shadow="3" colorScheme="indigo" bg="#009BBD" borderRadius="10">
+              <Text fontFamily="body" fontWeight="500" fontSize="2xl" color="#FFFFFF">Masuk</Text>
+          </Button>
+
+          <HStack mt="100" justifyContent="center">
+              <Text fontFamily="body" fontWeight="600" fontSize="xl" color="coolGray.600" _dark={{color: "warmGray.200"}}>
+              Belum Punya Akun ? {" "}
+              </Text>
+              <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+                <Text color="#FF0000" fontWeight="medium" fontSize="xl" fontFamily="heading">
+                  Daftar disini
                 </Text>
-                <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-                  <Text color="#FF0000" fontWeight="medium" fontSize="xl" fontFamily="heading">
-                    Daftar disini
-                  </Text>
-                </TouchableOpacity>
-                {/* <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-                  <Text color="#FF0000" fontWeight="medium" fontSize="xl" fontFamily="heading">
-                    Daftar Disini
-                  </Text>
-                </TouchableOpacity> */}
-            </HStack>
+              </TouchableOpacity>
+              {/* <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+                <Text color="#FF0000" fontWeight="medium" fontSize="xl" fontFamily="heading">
+                  Daftar Disini
+                </Text>
+              </TouchableOpacity> */}
+          </HStack>
 
-            </FormControl>
-        </VStack>
+          </FormControl>
+      </VStack>
     </SafeAreaView>
   );
 }
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
       width: 200,
       height: 200,
       marginBottom: 50
-  },    
+  },
 });
 
 const theme = extendTheme({
@@ -178,7 +180,7 @@ const theme = extendTheme({
       },
     }
   },
-  
+
   // Make sure values below matches any of the keys in `fontConfig`
   fonts: {
     heading: "Montserrat",
@@ -186,3 +188,5 @@ const theme = extendTheme({
     mono: "Montserrat",
   },
 });
+
+export default SignIn
