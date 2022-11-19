@@ -3,10 +3,6 @@ import {View, StyleSheet, Image, ScrollView, TouchableOpacity, SafeAreaView} fro
 import { Box, Stack, Container, Heading, Text, Center, NativeBaseProvider, extendTheme } from "native-base";
 
 import {
-  FontAwesome,
-  FontAwesome5,
-  MaterialCommunityIcons,
-  AntDesign,
   MaterialIcons
 } from '@expo/vector-icons';
 import Map from "../assets/svg/Map";
@@ -61,7 +57,7 @@ const Home = ({navigation}) => {
                   <Text style={{fontWeight: '600', alignSelf: 'center'}}>Laporan</Text>
                 </View>
                 <View style={styles.cardMenu}>
-                  <TouchableOpacity style={styles.cardMenuBox}>
+                  <TouchableOpacity style={styles.cardMenuBox} onPress={() => navigation.navigate('EmergencyContact')}>
                     <Contact />
                   </TouchableOpacity>
                   <Text style={styles.cardMenuName}>Kontak</Text>

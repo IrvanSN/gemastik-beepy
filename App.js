@@ -7,6 +7,7 @@ import Home from './src/pages/Home';
 import Allert from './src/pages/allert.js';
 import SignUp from './src/pages/SignUp.js';
 import AddReport from "./src/pages/AddReport";
+import EmergencyContact from "./src/pages/EmergencyContact";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export default function App() {
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Allert" component={Allert}/>
             <Stack.Screen name="AddReport" component={AddReport} options={{title:"Laporkan Kejahatan", headerShown: true}}/>
+            <Stack.Screen name="EmergencyContact" component={EmergencyContact} options={{title:"Kontak Darurat", headerShown: true}}/>
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>
