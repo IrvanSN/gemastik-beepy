@@ -11,7 +11,7 @@ import Person from "../assets/svg/Person";
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import Separator from "../components/Separator";
 
-const EmergencyContact = () => {
+const EmergencyContact = ({navigation}) => {
   return (
       <NativeBaseProvider>
         <View flex='1'>
@@ -70,7 +70,7 @@ const EmergencyContact = () => {
             </VStack>
           </ScrollView>
           <VStack width="90%" maxW="900%" ml="5%" mt="3%" flexDirection='column'>
-            <Button p="1" mb="0" shadow="3" colorScheme="indigo" bg="#0FA958" borderRadius="10">
+            <Button onPress={() => navigation.navigate('AddEmergencyContact')} p="1" mb="0" shadow="3" colorScheme="indigo" bg="#0FA958" borderRadius="10">
               <Text fontFamily="body" fontWeight="500" fontSize="2xl" color="#FFFFFF">Tambah Kontak</Text>
             </Button>
             <Separator height={20} />
