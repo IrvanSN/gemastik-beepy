@@ -1,16 +1,12 @@
 import React, {useState} from "react";
-import { TouchableOpacity } from "react-native";
 import { Box, Pressable, Icon, Button, Checkbox,Text, NativeBaseProvider, ScrollView, VStack, FormControl, Input, Select, Center, CheckIcon, HStack } from "native-base";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Separator from "../components/Separator";
 import InputField from "../components/InputField";
 import Dropdown from "../components/Dropdown";
-import DateTimePicker from '@react-native-community/datetimepicker';
 import * as ImagePicker from 'expo-image-picker';
-import { Fontisto, AntDesign } from '@expo/vector-icons';
 import DatePicker from "../components/DatePicker";
-import { Touchable } from "react-native";
-import ButtonC from "../components/button";
+
 // import { TouchableOpacity } from "react-native-gesture-handler";
 
 const dataGender = [
