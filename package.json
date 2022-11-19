@@ -15,6 +15,7 @@
     "@types/react-native": "*",
     "expo": "~47.0.6",
     "expo-constants": "~14.0.2",
+    "expo-image-picker": "~14.0.1",
     "expo-status-bar": "~1.4.2",
     "native-base": "*",
     "react": "18.1.0",
