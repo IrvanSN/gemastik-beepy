@@ -2,10 +2,10 @@ import React from "react";
 import {Box, Input} from "native-base";
 
 
-const InputField = ({placeholder, borderRadius, shadow, size, ...restProps}) => {
+const inputField = ({placeholder, borderRadius, shadow, size, ...restProps}) => {
   return (
       <Box borderRadius={borderRadius} shadow={shadow} bg="#FFFFFF">
-        <Input placeholder={placeholder} borderRadius={borderRadius} borderWidth="0" size={size} {...restProps} />
+        <Input borderRadius={borderRadius} borderWidth="0" size={size} {...restProps} />
       </Box>
   )
 }
