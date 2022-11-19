@@ -24,7 +24,7 @@ const Show = () => {
   const [show, setShow] = React.useState(false);
 
   const validasi = () =>{
-    if (formData.name === '089630442193' && formData.pass === 'namri') {
+    if (formData.name === 'namri' && formData.pass === 'namri') {
       Alert.alert('Login Berhasil');
       console.log('Login Berhasil');
       navigation.reset({

@@ -1,10 +1,17 @@
 import React, {useState} from "react";
-import { Box, Text, NativeBaseProvider, ScrollView, VStack, FormControl, Input, Select, Center, CheckIcon } from "native-base";
+import { TouchableOpacity } from "react-native";
+import { Box, Pressable, Icon, Button, Checkbox,Text, NativeBaseProvider, ScrollView, VStack, FormControl, Input, Select, Center, CheckIcon, HStack } from "native-base";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Separator from "../components/Separator";
 import InputField from "../components/InputField";
 import Dropdown from "../components/Dropdown";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import * as ImagePicker from 'expo-image-picker';
+import { Fontisto, AntDesign } from '@expo/vector-icons';
+import DatePicker from "../components/DatePicker";
+import { Touchable } from "react-native";
+import ButtonC from "../components/button";
+// import { TouchableOpacity } from "react-native-gesture-handler";
 
 const dataGender = [
     {
@@ -159,8 +166,48 @@ const dataProvinsi = [
 ]
 
 const SignUp = () => {
-    const [date, setDate] = useState(new Date)
-    const [gender, setGender] = useState("")
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate;
+        setShow(false);
+        setDate(currentDate);
+    };
+
+    const showMode = (currentMode) => {
+        if (Platform.OS === 'android') {
+        setShow(true);
+        // for iOS, add a button that closes the picker
+        }
+        setMode(currentMode);
+    };
+
+    const showDatepicker = () => {
+        setShow(true)
+        showMode(mode);
+    };
+
+const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+};
+
+
 
     return(
         <NativeBaseProvider>
@@ -185,10 +232,21 @@ const SignUp = () => {
                             <FormControl.Label>
                                 <Text>Tanggal lahir</Text>
                             </FormControl.Label>
-                            {/* <DateTimePicker
-                                date = {date}
-                                onDateChange = {setDate}
-                            /> */}
+                            <DatePicker/>
+                            {/* <InputField shadow='4' size='l' borderRadius='10' placeholder='Ex. John Smith' value={date.toLocaleString()} InputRightElement={
+                                <Pressable onPress={() => showDatepicker()}>
+                                    <Icon as={<Fontisto name='date' />} size={5} mr="2" color="muted.400" />
+                                </Pressable>
+                            } />
+                            {show && (
+                                <DateTimePicker
+                                testID="dateTimePicker"
+                                value={date}
+                                mode={'date'}
+                                is24Hour={true}
+                                onChange={onChange}
+                                />
+                            )} */}
                             <Separator height={20} />
 
                             {/* NIK */}
@@ -276,6 +334,32 @@ const SignUp = () => {
                                 size="l"
                             />
                             <Separator height={20} />
+
+                            {/* KTP & Selfie */}
+                            <FormControl.Label>
+                                <Text>Upload KTP dan Selfie dengan KTP</Text>
+                            </FormControl.Label>
+                                <Button p="1" mb="5%" shadow="3" colorScheme="indigo" bg="#FFFFFF" borderRadius="5" h="5%" onPress={pickImage}>
+                                    <Text fontFamily="body" fontWeight="500" fontSize="12" color="#000000">Pilih</Text>
+                                </Button>
+                                {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+                            <Separator height={30} />
+
+                            {/* Terms and condition */}
+                            <HStack>
+                                <Checkbox value="one" my={2}>
+                                    Saya menyetujui semua
+                                    <Pressable>
+                                        <Text fontSize="15.5px" mt="0.2%" color="#46B2CA">syarat & ketentuan</Text>
+                                    </Pressable>
+                                </Checkbox>
+                            </HStack>
+
+                            <Button p="1" mb="5%" shadow="3" colorScheme="indigo" bg="#009BBD" borderRadius="10">
+                                <Text fontFamily="body" fontWeight="500" fontSize="2xl" color="#FFFFFF">Masuk</Text>
+                            </Button>
+
+                            <Separator height={45} />              
 
                         </FormControl>
                     </VStack>
